@@ -38,6 +38,8 @@ Make sure to initialize it in the init() section. Refer to example folder.
 
 ![pic1](https://user-images.githubusercontent.com/19472506/120332238-382b3b00-c2f7-11eb-84db-ea2063fc5b29.png)
 
+- Sample code
+
 ```dart:
 class _MatrixState extends State<Matrix> {
 
