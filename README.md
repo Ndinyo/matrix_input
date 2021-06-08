@@ -28,7 +28,7 @@ Most importantly, bundle it in either a row or column.
 Note: the "matrixController" is required. Just like a normal TextEditingController.
 
 Thus, declare your TextEditingController textEditingController; i.e TextEditingController r0c0;
-Implying Row1Column0 e.t.c
+Implying Row0Column0 e.t.c
 
 Make sure to initialize it in the init() section. Refer to example folder.
 
