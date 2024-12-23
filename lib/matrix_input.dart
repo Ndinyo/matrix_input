@@ -26,6 +26,23 @@ class MatrixInput extends StatelessWidget {
   final InputDecoration? inputDecoration;
   final TextStyle? style;
   final Color matrixBorderColor;
+  final bool obscureText;
+  final void Function(String)? onChanged;
+  final ValueChanged<String>? onSubmitted;
+  final bool autofocus;
+  final bool autocorrect;
+  final bool canRequestFocus;
+  final Clip clipBehavior;
+  final String obscuringCharacter;
+  final void Function()? onEditingComplete;
+  final void Function()? onTap;
+  final void Function(PointerDownEvent)? onTapOutside;
+  final bool onTapAlwaysCalled;
+  final String? restorationId;
+  final bool scribbleEnabled;
+  final bool? showCursor;
+  final TextAlignVertical? textAlignVertical;
+  final TextCapitalization textCapitalization;
 
   const MatrixInput(
       {Key? key,
@@ -49,7 +66,24 @@ class MatrixInput extends StatelessWidget {
       this.textDirection,
       this.inputDecoration = const InputDecoration(),
       this.matrixBorderColor = const Color(0xFF000000),
-      this.style})
+      this.style,
+      this.obscureText = false,
+      this.onChanged,
+      this.onSubmitted,
+      this.autofocus = false,
+      this.autocorrect = true,
+      this.canRequestFocus = true,
+      this.clipBehavior = Clip.hardEdge,
+      this.obscuringCharacter = '•',
+      this.onEditingComplete,
+      this.onTap,
+      this.onTapOutside,
+      this.onTapAlwaysCalled = false,
+      this.restorationId,
+      this.scribbleEnabled = true,
+      this.showCursor,
+      this.textCapitalization = TextCapitalization.none,
+      this.textAlignVertical})
       : assert(maxLines == null || maxLines > 0),
         assert(minLines == null || minLines > 0),
         assert(
@@ -96,6 +130,21 @@ class MatrixInput extends StatelessWidget {
           ),
         ),
         child: TextField(
+          showCursor: showCursor,
+          scribbleEnabled: scribbleEnabled,
+          restorationId: restorationId,
+          obscuringCharacter: obscuringCharacter,
+          onEditingComplete: onEditingComplete,
+          onTap: onTap,
+          onTapAlwaysCalled: onTapAlwaysCalled,
+          onTapOutside: onTapOutside,
+          clipBehavior: clipBehavior,
+          canRequestFocus: canRequestFocus,
+          autocorrect: autocorrect,
+          autofocus: autofocus,
+          onSubmitted: onSubmitted,
+          onChanged: onChanged,
+          obscureText: obscureText,
           controller: matrixController,
           enabled: enabled,
           readOnly: readOnly,
@@ -103,6 +152,8 @@ class MatrixInput extends StatelessWidget {
           maxLength: maxLength,
           keyboardType: keyboardType,
           textAlign: textAlign,
+          textAlignVertical: textAlignVertical,
+          textCapitalization: textCapitalization,
           cursorColor: cursorColor,
           maxLines: maxLines,
           minLines: minLines,
