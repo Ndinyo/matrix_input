@@ -1,6 +1,6 @@
 name: matrix_input
 description: A package that leverages on the power of flutter widgets to display data in matrix form.
-version: 1.2.0
+version: 1.2.1
 homepage: https://github.com/Ndinyo/matrix_input
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  flutter_lints: ^3.0.2
   flutter_test:
     sdk: flutter
   test: ^1.25.7

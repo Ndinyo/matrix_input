@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:matrix_input/matrix_input.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -14,19 +16,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Matrix(),
+      home: const Matrix(),
     );
   }
 }
 
 class Matrix extends StatefulWidget {
-  Matrix({Key? key}) : super(key: key);
+  const Matrix({super.key});
 
   @override
-  _MatrixState createState() => _MatrixState();
+  MatrixState createState() => MatrixState();
 }
 
-class _MatrixState extends State<Matrix> {
+class MatrixState extends State<Matrix> {
   //Create text controllers
   final r0c0 = TextEditingController(text: '8');
   final r0c1 = TextEditingController(text: '9');
@@ -50,7 +52,7 @@ class _MatrixState extends State<Matrix> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('matrix_input'),
+        title: const Text('matrix_input'),
       ),
       body: Center(
         child: Row(
@@ -63,16 +65,15 @@ class _MatrixState extends State<Matrix> {
               enabled: true,
               readOnly: false,
               width: 60,
-              matrixController:
-                  r0c0, //Connect the controller to a matrixController
+              matrixController: r0c0, //Connect the controller to a matrixController
               keyboardType: TextInputType.number,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25.0,
                 color: Colors.blueAccent,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 5.0,
             ),
             MatrixInput(
@@ -81,16 +82,15 @@ class _MatrixState extends State<Matrix> {
               enabled: true,
               readOnly: false,
               width: 60,
-              matrixController:
-                  r0c1, //Connect the controller to a matrixController
+              matrixController: r0c1, //Connect the controller to a matrixController
               keyboardType: TextInputType.number,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25.0,
                 color: Colors.purple,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 5.0,
             ),
             MatrixInput(
@@ -99,10 +99,9 @@ class _MatrixState extends State<Matrix> {
               enabled: true,
               readOnly: false,
               width: 60,
-              matrixController:
-                  r0c2, //Connect the controller to a matrixController
+              matrixController: r0c2, //Connect the controller to a matrixController
               keyboardType: TextInputType.number,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25.0,
                 color: Colors.green,
                 fontWeight: FontWeight.bold,

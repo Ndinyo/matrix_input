@@ -39,10 +39,11 @@ class MatrixInput extends StatelessWidget {
   final void Function(PointerDownEvent)? onTapOutside;
   final bool onTapAlwaysCalled;
   final String? restorationId;
-  final bool scribbleEnabled;
+  final bool stylusHandwritingEnabled;
   final bool? showCursor;
   final TextAlignVertical? textAlignVertical;
   final TextCapitalization textCapitalization;
+  final FocusNode? focusNode;
 
   const MatrixInput(
       {Key? key,
@@ -80,9 +81,10 @@ class MatrixInput extends StatelessWidget {
       this.onTapOutside,
       this.onTapAlwaysCalled = false,
       this.restorationId,
-      this.scribbleEnabled = true,
+      this.stylusHandwritingEnabled = EditableText.defaultStylusHandwritingEnabled,
       this.showCursor,
       this.textCapitalization = TextCapitalization.none,
+      this.focusNode,
       this.textAlignVertical})
       : assert(maxLines == null || maxLines > 0),
         assert(minLines == null || minLines > 0),
@@ -90,9 +92,7 @@ class MatrixInput extends StatelessWidget {
           (maxLines == null) || (minLines == null) || (maxLines >= minLines),
           "minLines can't be greater than maxLines",
         ),
-        assert(maxLength == null ||
-            maxLength == TextField.noMaxLength ||
-            maxLength > 0),
+        assert(maxLength == null || maxLength == TextField.noMaxLength || maxLength > 0),
         // Assert the following instead of setting it directly to avoid surprising the user by silently changing the value they set.
         assert(
           !identical(textInputAction, TextInputAction.newline) ||
@@ -131,7 +131,7 @@ class MatrixInput extends StatelessWidget {
         ),
         child: TextField(
           showCursor: showCursor,
-          scribbleEnabled: scribbleEnabled,
+          stylusHandwritingEnabled: stylusHandwritingEnabled,
           restorationId: restorationId,
           obscuringCharacter: obscuringCharacter,
           onEditingComplete: onEditingComplete,
@@ -160,6 +160,7 @@ class MatrixInput extends StatelessWidget {
           textDirection: textDirection,
           decoration: matrixDecoration,
           style: style,
+          focusNode: focusNode,
         ),
       ),
     );

@@ -1,3 +1,7 @@
+## [1.2.1] - 2025-09-27
+
+* Include focus node.
+
 ## [1.2.0] - 2024-12-23
 
 * Updates minimum supported SDK version to Flutter 3.19.2/Dart 3.3.0.
